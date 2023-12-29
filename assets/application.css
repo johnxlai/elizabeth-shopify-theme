@@ -567,3 +567,8 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+
+.text-yellow-300 {
+  --tw-text-opacity: 1;
+  color: rgb(253 224 71 / var(--tw-text-opacity));
+}
