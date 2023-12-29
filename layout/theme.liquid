@@ -12,9 +12,9 @@
     {{ 'application.css' | asset_url | stylesheet_tag }}
     {{ 'application.js' | asset_url | script_tag }}
   </head>
-  <body class="bg-green-700 text-xl text-yellow-300">
+  <body>
+    {% section 'header' %}
     <main role="main">
-      <h1>Wooo hoo</h1>
       {{ content_for_layout }}
     </main>
   </body>
