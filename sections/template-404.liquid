@@ -8,14 +8,13 @@
     </p>
   </div>
   <div class="my-4">
-    {% if section.settings.button_url %}
+    {% if section.settings.button_url == blank %}
       {% assign shop_url = shop.secure_url %}
     {% else %}
       {% assign shop_url = section.settings.button_url %}
     {% endif %}
-
-    <a href="{{ shop_url }}">
-      {{ section.settings.button_text }}
+    <a href="{{ shop_url }}" class="px-4 py-2 text-base font-medium shadow bg-green-600 hover:bg-green-800 text-white">
+      {{ section.settings.button_label }}
     </a>
   </div>
 </div>
@@ -37,6 +36,12 @@
         "id": "subtext_title",
         "default": "Page not found",
         "label": "404 subtext title"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "default": "Go to home",
+        "label": "404 button label"
       },
       {
         "type": "url",
