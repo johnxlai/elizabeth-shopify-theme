@@ -1,5 +1,13 @@
-<h1>{{ section.settings.title }}</h1>
-<p>{{ section.settings.subtext_title }}</p>
+<div class="max-w-md">
+  <div class="text-5xl font-bold text-gray-900 mb-4">
+    {{section.settings.title }}
+  </div>
+  <div class="my-4">
+    <p class="text-base md:text-xl leading-normal">
+      {{ section.settings.subtext_title }}
+    </p>
+  </div>
+</div>
 
 {% schema %}
 {
@@ -10,13 +18,13 @@
     {
       "type":"text",
       "id":"title",
-      "default":"404",
+      "default":"404 12323",
       "label":"404 heading Title"
     },
     {
       "type": "text",
       "id": "subtext_title",
-      "default": "Page not found",
+      "default": "Page not found sds",
       "label": "404 subtext title"
     }
   ]
