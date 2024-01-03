@@ -1,0 +1,76 @@
+{% if cart.item_count > 0 %}
+  <div class="p-4 flex flex-col max-w-6xl mx-auto">
+    <div class="flex justify-between items-center">
+      <h1 class="text-3xl my-4">Your cart</h1>
+      <a href="{{ routes.all_products_collection_url }}" class="border border-gray-600 text-white bg-gray-600 px-8 py-3">
+        Continue Shopping
+      </a>
+    </div>
+    <div class="max-w-6xl mx-auto flex flex-col my-10">
+      <form action="{{ routes.cart_url }}" method="Post" novalidate>
+        <table class="table table-auto w-full my-4">
+          <thead>
+            <th class="px-6 py-3 bg-gray-50 border-b border-gray-200 text-left">Product</th>
+            <th class="px-6 py-3 bg-gray-50 border-b border-gray-200 text-left">Quantity</th>
+            <th class="px-6 py-3 bg-gray-50 border-b border-gray-200 text-left">Total Price</th>
+          </thead>
+          <tbody>
+            {% for item in cart.items %}
+              <tr class="table-row">
+                <td class="py-4 px-2 flex flex-col justify-center">
+                  <a href="{{ item.url }}">
+                    {% if item.image %}
+                    <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.title | escape }}"
+                      class="w-20 h-20 object-cover border">
+                    {% else %}
+                    {{ 'product-1' | placeholder_svg_tag:'w-20 h-20 object-cover border' }}
+                    {% endif %}
+                  </a>
+                </td>
+                <td class="flex flex-col">
+                  <a href="{{item.url}}" class="my-1">{{ item.product.title | truncatewords }}</a>
+                  <span class="text-sm text-gray-500">{{ item.variant.title }}</span>
+                  <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" class="text-sm text-red-300">remove</a>
+                </td>
+                <td>
+                  <input type="number" name="updates[]" value="{{ item.quantity }}" min="1" id="updates_{{ forloop.index }}" class="w-20 border p-2">
+                </td>
+                <td>
+                {{ item.line_price | money }}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="w-full my-4">
+            <div class="flex flex-col items-start">
+              <label for="cart_notes" class="my-1">Cart Notes</label>
+              <textarea name="note" id="cart_notes" class="w-full md:max-w-lg resize-none border h-20"></textarea>
+            </div>
+          </div>
+          <div class="w-full my-4 md:w-80">
+            <div class="text-xl">Subtotal: {{ cart.total_price | money }}</div>
+            <div class="my-2">
+              <button name="update" type="submit" class="w-full p-3 border border-gray-600">Update</button>
+            </div>
+             <div class="my-2">
+              <button type="submit" name="checkout" class="w-full p-3 border border-gray-600 text-white bg-gray-600">Checkout</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% else %}
+  <div class="max-w-6xl h-60 my-4 mx-auto flex items-center justify-center">
+    <div class="text-center">
+      <h1 class="text-3xl my-4">Your cart is empty</h1>
+      <my-4 class="py-4"><a href="{{ routes.all_products_collection_url }}" class="border border-gray-600 text-white bg-gray-600 px-8 py-3">
+        Continue Shopping
+      </a></my-4>
+    </div>
+  </div>
+{% endif %}
