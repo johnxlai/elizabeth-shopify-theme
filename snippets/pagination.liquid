@@ -1,6 +1,19 @@
 {% if pagination.pages > 0 %}
   <nav role="navigation" class="flex justify-center my-8">
-    <a href="{{ pagination.previous.url }}">{{ pagination.previous.title }}</a>
-    <a href="{{ pagination.next.url }}">{{ pagination.next.title }}</a>
+    {% if pagination.previous %}
+      <a href="{{ pagination.previous.url }}" class="mr-4 p-3 border rounded font-medium  border-gray-600 hover:bg-gray-700 hover:text-white">← Previous</a>
+    {% endif %}
+
+    {% for part in pagination.parts %}
+      {% if part.is_link %}
+        <a href="{{ part.url }}" class="mr-4 p-3 border rounded font-medium  border-gray-600 hover:bg-gray-700 hover:text-white">{{ part.title }}</a>
+      {% else %}
+        <span class="mr-4 p-3 border rounded font-medium  border-gray-600 hover:bg-gray-700 hover:text-white">{{ part.title }}</span>
+      {% endif %}
+    {% endfor %}
+
+    {% if pagination.next %}
+      <a href="{{ pagination.next.url }}" class="mr-4 p-3 border rounded font-medium  border-gray-600 hover:bg-gray-700 hover:text-white">Next →</a>
+    {% endif %}
   </nav>
 {% endif %}
