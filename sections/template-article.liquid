@@ -24,6 +24,15 @@
 {% if blog.comments_enabled? %}
     <div id="comment_form" class="mb-8 bg-slate-600">
       {% form "new_comment", article %}
+        {% if form.errors %}
+          <div class="errors">
+            {% for field in form.errors %}
+              {% for message in field %}
+                <p>{{ message }}</p>
+              {% endfor %}
+            {% endfor %}
+          </div>
+        {% endif %}
         <div>
           <label for="comment_author">Name</label>
           <input type="text" name="comment[author]" id="comment_author">
@@ -38,12 +47,14 @@
       {% endform %}
     {% if article.comments_count > 0 %}
       <h2>{{ article.comments_count }} Comments</h2>
-      {% for comment in article.comments %}
-        <div>
-          <h3>{{ comment.author }}</h3>
-          <p>{{ comment.content }}</p>
-        </div>
-      {% endfor %}
+      {% paginate article.comments by 5 %}
+        {% for comment in article.comments %}
+          <div>
+            <h3>{{ comment.author }}</h3>
+            <p>{{ comment.content }}</p>
+          </div>
+        {% endfor %}
+      {% endpaginate %}
     {% else %}
       <h2>No Comments</h2>
     {% endif %}
