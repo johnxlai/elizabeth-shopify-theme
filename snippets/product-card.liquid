@@ -14,7 +14,39 @@
         {% endif %}
       </a>
       <div class="group-hover:flex hidden add-to-cart__container absolute z-10 top-0 justify-center items-center w-full h-full">
-        <button class="add-to-cart__btn bg-green-400 p-3 rounded text-white hover:bg-green-600">Add to cart</button>
+        <form
+          action="/cart/add"
+          method="post"
+          enctype="multipart/form-data"
+          id="AddToCartForm">
+
+          <select
+            name="id"
+            id="productSelect"
+            hidden>
+            {% for variant in product.variants %}
+              {% if variant.available %}
+                <option value="{{ variant.id }}">
+                  {{ variant.title }} - {{ variant.price | money_with_currency }}
+                </option>
+              {% endif %}
+            {% endfor %}
+          </select>
+
+          <label for="Quantity" hidden>quantity</label>
+          <input
+            type="number"
+            id="Quantity"
+            name="quantity"
+            value="1"
+            min="1"
+            hidden>
+          <button
+            type="submit"
+            name="add"
+            class="add-to-cart__btn bg-green-400 p-3 rounded text-white hover:bg-green-600"
+            id="AddToCart">Add to cart</button>
+        </form>
       </div>
     </div>
 
