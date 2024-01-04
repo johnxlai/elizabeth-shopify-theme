@@ -1134,6 +1134,10 @@ video {
   display: flex;
 }
 
+.group:hover .group-hover\:opacity-50 {
+  opacity: 0.5;
+}
+
 @media (min-width: 640px) {
   .sm\:gap-8 {
     gap: 2rem;

@@ -1,24 +1,28 @@
 <div class="w-full py-6">
-  <div class="group border bg-white shadow-lg rounded-lg overflow-hidden relative">
-    <a href="{{ product.url }}">
-      {% if product.featured_image %}
-        <div class="h-80 overflow-hidden">
-          <img
-            class="w-full h-full object-cover"
-            src="{{ product.featured_image | img_url:'medium' }}"
-            alt="{{ product.featured_image.alt }}">
-        </div>
-      {% else %}
-        {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100' }}
-      {% endif %}
-    </a>
+  <div class="border bg-white shadow-lg rounded-lg overflow-hidden ">
+    <div class="group relative">
+      <a href="{{ product.url }}">
+        {% if product.featured_image %}
+          <div class="h-80 overflow-hidden">
+            <img
+              class="w-full h-full object-cover group-hover:opacity-50"
+              src="{{ product.featured_image | img_url:'medium' }}"
+              alt="{{ product.featured_image.alt }}">
+          </div>
+        {% else %}
+          {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100 group-hover:opacity-50' }}
+        {% endif %}
+      </a>
+      <div class="group-hover:flex hidden add-to-cart__container absolute z-10 top-0 justify-center items-center w-full h-full">
+        <button class="add-to-cart__btn bg-green-400 p-3 rounded text-white hover:bg-green-600">Add to cart</button>
+      </div>
+    </div>
+
     <div class="flex flex-col p-4">
       <span class="text-sm text-gray-400">{{ product.vendor }}</span>
       <a href="{{ product.url }}" class="text-gray-700 uppercase font-medium">{{ product.title }}</a>
       <p class="text-gray-500">{{ product.price | money }}</p>
     </div>
-    <div class="group-hover:flex hidden add-to-cart__container absolute z-10 top-0 justify-center items-center w-full h-full">
-      <button class="add-to-cart__btn bg-green-400 p-3 rounded text-white hover:bg-green-600">Add to cart</button>
-    </div>
+
   </div>
 </div>
