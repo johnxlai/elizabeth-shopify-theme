@@ -54,6 +54,12 @@
             <p>{{ comment.content }}</p>
           </div>
         {% endfor %}
+
+        {% if paginate.pages > 1 %}
+          <div class="max-w-6xl mx-auto">
+            {% render 'pagination', pagination : paginate %}
+          </div>
+        {% endif %}
       {% endpaginate %}
     {% else %}
       <h2>No Comments</h2>
