@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.addEventListener('click', function () {
       // Your custom code to be executed when the button is clicked
       console.log('Button clicked!');
-
       this.innerHTML = 'this works';
     });
   }

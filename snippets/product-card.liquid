@@ -1,5 +1,5 @@
 <div class="w-full py-6">
-  <div class="border bg-white shadow-lg rounded-lg overflow-hidden">
+  <div class="border bg-white shadow-lg rounded-lg overflow-hidden relative">
     <a href="{{ product.url }}">
       {% if product.featured_image %}
         <div class="h-80 overflow-hidden">
@@ -16,6 +16,9 @@
       <span class="text-sm text-gray-400">{{ product.vendor }}</span>
       <a href="{{ product.url }}" class="text-gray-700 uppercase font-medium">{{ product.title }}</a>
       <p class="text-gray-500">{{ product.price | money }}</p>
+    </div>
+    <div class="add-to-cart__container absolute z-10 top-0 justify-center items-center w-full h-full">
+      <button class="add-to-cart__btn bg-green-400 p-3 rounded text-white hover:bg-green-600">Add to cart</button>
     </div>
   </div>
 </div>
