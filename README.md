@@ -1,5 +1,5 @@
 # Outdoor Tailwind Shopify Theme
-[![Generic badge](https://img.shields.io/badge/course%20available%3F-yes-green.svg)](https://shields.io/)
+### Used for learning how to work with shopify themes and tailwindcss
 
 This project is created and intended to be used for the [Shopify Theme Development – Online Store 2.0 + TailwindCSS course](https://weeklyhow.com/courses/)
 
