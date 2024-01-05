@@ -50,14 +50,18 @@
             type="submit"
             name="add"
             class="add-to-cart__btn bg-green-400 p-3 rounded text-white hover:bg-green-600"
-            id="AddToCart">Add to cart</button>
+            id="{{ product.title }}"
+            data-product="{{ product.price | money }}">Add to cart</button>
         </form>
       </div>
     </div>
 
     <div class="flex flex-col px-4 py-8 text-center">
       <span class="text-sm text-gray-400">{{ product.vendor }}</span>
-      <a href="{{ product.url }}" class="text-gray-700 uppercase font-medium">{{ product.title }}</a>
+      <a
+        href="{{ product.url }}"
+        class="text-gray-700 uppercase font-medium"
+        data-product="{{ product }}">{{ product.title }}</a>
       <p class="text-gray-500">{{ product.price | money }}</p>
       {% render 'icon-stars' %}
     </div>
