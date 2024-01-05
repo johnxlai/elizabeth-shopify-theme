@@ -56,11 +56,11 @@
       </div>
     </div>
 
-    <div class="flex flex-col px-4 py-8 text-center">
+    <div class="flex flex-col px-4 py-8 text-center bam-test">
       <span class="text-sm text-gray-400">{{ product.vendor }}</span>
       <a
         href="{{ product.url }}"
-        class="text-gray-700 uppercase font-medium bam-test text-blue-900"
+        class="text-gray-700 uppercase font-medium  text-blue-900"
         data-product="{{ product }}">{{ product.title }}</a>
       <p class="text-gray-500">{{ product.price | money }}</p>
       {% render 'icon-stars' %}

@@ -3,5 +3,7 @@
 @tailwind utilities;
 
 .bam-test {
-  color: red;
+  span {
+    color: red;
+  }
 }
