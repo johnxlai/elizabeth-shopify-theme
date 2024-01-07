@@ -1,0 +1,19 @@
+<div class="mb-6 w-full">
+  <div class="border bg-white shadow-lg rounded-lg overflow-hidden">
+    <div class="group relative">
+      {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100 group-hover:opacity-50' }}
+      <div class="group-hover:flex hidden add-to-cart__container absolute z-10 top-0 justify-center items-center w-full h-full"></div>
+    </div>
+
+    <div class="flex flex-col px-4 py-8 text-center">
+      <span class="text-sm text-gray-400">{{ product.vendor }}</span>
+      <a
+        href="{{ product.url }}"
+        class="text-gray-700 uppercase font-medium  text-blue-900"
+        data-product="{{ product }}">Placeholder title</a>
+      <p class="text-gray-500">{{ '9999' | money }}</p>
+      {% render 'icon-stars' %}
+    </div>
+
+  </div>
+</div>
