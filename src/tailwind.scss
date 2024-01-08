@@ -8,8 +8,35 @@
   }
 }
 /* Weird sass comment */
-.bam-text {
-  span {
-    color: red;
+.radio-group input[type='radio'] {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: rgb(90, 218, 124);
+
+  &:checked {
+    outline-color: black;
+  }
+
+  &.white-tshirt {
+    background-color: rgba(silver, 0.5);
+
+    &:checked {
+      outline-color: silver;
+    }
+  }
+
+  &.orange-tshirt {
+    background-color: rgba(orange, 0.5);
+
+    &:checked {
+      outline-color: orange;
+    }
+  }
+
+  &:checked {
+    outline: solid 2px;
   }
 }

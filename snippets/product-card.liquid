@@ -24,19 +24,22 @@
           action="/cart/add"
           method="post"
           enctype="multipart/form-data"
-          id="AddToCartForm">
+          id="AddToCartForm"
+          class="text-center">
 
-
-          {% for variant in product.variants %}
-            {% if variant.available %}
-              <input
-                type="radio"
-                name="id"
-                id="productSelect"
-                value="{{ variant.id }}">
-              <label for="{{ variant.id }}">{{ variant.title }}</label>
-            {% endif %}
-          {% endfor %}
+          <div class="mb-3 radio-group">
+            {% for variant in product.variants %}
+              {% if variant.available %}
+                <input
+                  type="radio"
+                  name="id"
+                  id="{{ variant.id }}"
+                  value="{{ variant.id }}"
+                  class="{{ variant.title  | downcase }}-tshirt">
+                <label for="{{ variant.id }}">{{ variant.title }}</label>
+              {% endif %}
+            {% endfor %}
+          </div>
 
           <label hidden for="Quantity">quantity</label>
           <input
