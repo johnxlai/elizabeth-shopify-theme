@@ -27,7 +27,7 @@
           id="AddToCartForm"
           class="text-center">
 
-          <div class="mb-3 radio-group">
+          <div class="mb-3 radio-group bg-slate-100 flex justify-center items-center p-3">
             {% for variant in product.variants %}
               {% if variant.available %}
                 <input
@@ -35,8 +35,9 @@
                   name="id"
                   id="{{ variant.id }}"
                   value="{{ variant.id }}"
-                  class="{{ variant.title  | downcase }}-tshirt">
-                <label for="{{ variant.id }}">{{ variant.title }}</label>
+                  class="{{ variant.title  | downcase }} mr-1"
+                  style="background-color:{{variant.title}}">
+                <label class="mr-3" for="{{ variant.id }}">{{ variant.title }}</label>
               {% endif %}
             {% endfor %}
           </div>

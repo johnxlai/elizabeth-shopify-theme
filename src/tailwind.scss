@@ -12,31 +12,10 @@
   appearance: none;
   width: 15px;
   height: 15px;
-  border: 2px solid white;
+  border: 2px solid black;
   border-radius: 50%;
-  background-color: rgb(108, 159, 242);
 
   &:checked {
-    outline-color: black;
-  }
-
-  &.white-tshirt {
-    background-color: rgba(silver, 0.5);
-
-    &:checked {
-      outline-color: silver;
-    }
-  }
-
-  &.orange-tshirt {
-    background-color: rgba(orange, 0.5);
-
-    &:checked {
-      outline-color: orange;
-    }
-  }
-
-  &:checked {
-    outline: solid 2px;
+    outline: solid 2px rgb(63, 191, 80);
   }
 }
