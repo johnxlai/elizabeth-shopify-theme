@@ -1,10 +1,7 @@
 {
   "sections": {
     "template": {
-      "type": "template-collection",
-      "settings": {
-        "featured_collection": "all"
-      }
+      "type": "template-collection"
     }
   },
   "order": ["template"]
